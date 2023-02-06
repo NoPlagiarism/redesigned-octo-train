@@ -1,0 +1,23 @@
+name: URL Deleter
+on:
+  issues:
+    types:
+      - opened
+      - edited
+jobs:
+  moderate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Moderate issues
+        uses: tachiyomiorg/issue-moderator-action@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-close-rules: |
+            [
+              {
+                "type": "title",
+                "regex": "((https?:)(\/\/\/?)([\w]*(?::[\w]*)?@)?([\d\w\.-]+)(?::(\d+))?)?([\/\\\w\.()-]*)?(?:([?][^#]*)?(#.*)?)*",
+                "message": "URL does not belong here."
+              }
+            ]
+          auto-close-ignore-label: do-not-autoclose
