@@ -36,6 +36,4 @@ jobs:
           GITHUB_JOB_STATUS: ${{ job.status }}
           DISCORD_TEMPLATE_PATH: ./ds_tok.json
           DISCORD_BOT_TOKEN: ${{secrets.DISCORD_BOT_TOKEN}}
-          DISCORD_CHANNEL_ID: 854827327078268981
-
-        
+          DISCORD_CHANNEL_ID: ${{secrets.DISCORD_CHANNEL_ID}}
