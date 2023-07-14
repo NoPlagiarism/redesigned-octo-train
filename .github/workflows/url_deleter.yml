@@ -14,12 +14,12 @@ jobs:
         uses: tachiyomiorg/issue-moderator-action@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          # Thanks to https://regex101.com/library/cX0pJ8
+          # Thanks to https://regex101.com/library/cX0pJ8 and tp https://www.freeformatter.com/json-escape.html
           auto-close-rules: |
             [
               {
                 "type": "title",
-                "regex": "^((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[.\!\/\\w]*))?)$",
+                "regex": "^((([A-Za-z]{3,9}:(?:\\\/\\\/)?)(?:[-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\\+\\$,\\w]+@)[A-Za-z0-9.-]+)((?:\\\/[\\+~%\\\/.\\w-_]*)?\\??(?:[-\\+=&;%@.\\w_]*)#?(?:[.\\!\\\/\\\\w]*))?)$",
                 "message": "URL does not belong here (#43). Go to https://github.com/nelsontky/gh-pages-url-shortener-db/issues instead"
               }
             ]
